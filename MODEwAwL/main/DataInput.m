@@ -1,9 +1,8 @@
-
-%%
 function [NoA u Covariance] = DataInput(input)
-
+% data from OR-Library
+PortSize1 = [31 85 89 98 225];
 NoA = input(1);
-if NoA <  400
+if ismember(NoA, PortSize1)
 diagData = ones(1,NoA);
 u = input(2:NoA+1,1);
 variance = input(2:NoA+1,2);

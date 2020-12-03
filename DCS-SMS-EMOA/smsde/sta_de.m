@@ -14,8 +14,8 @@ maxfes      = [100000];
 %% parameter 
 NP = 100;
 K = 10;
-Lb = 0.01;
-Ub = 1.0;
+Lb_all = 0.01;
+Ub_all = 1.0;
 Rl = 0.008;
 PreAss = [30];
 nproblem = 1;
@@ -31,8 +31,8 @@ for r =1:length(runs)
           pfile = sprintf('%s.txt',char(problems(pn)));
           input = textread(pfile);
           [NoA u Covariance] = DataInput(input);
-          Ub = repmat(Ub,NoA,1);
-          Lb = repmat(Lb,NoA,1);
+          Ub = repmat(Ub_all,NoA,1);
+          Lb = repmat(Lb_all,NoA,1);
  %%
         t1 = clock;
         [df, ds, fes] = SMSEMOA(char(problems(pn)),[],[],pops(pn),maxfes(pn));
